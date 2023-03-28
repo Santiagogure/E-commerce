@@ -44,29 +44,21 @@ export const Search = (props) => {
 };
 
 const HeaderTop = () => {
-  const {
-    isLogin,
-    setIsLogin,
-    userName,
-    setUserName,
-    setUserPassword,
-    setMenuIsVisible,
-  } = useContext(AppContext);
+  const { isLogin, setIsLogin, userName, setUserName, setMenuIsVisible } =
+    useContext(AppContext);
 
   useEffect(() => {
     const savedUsername = localStorage.getItem("username");
-    const savedPassword = localStorage.getItem("password");
-    if (
-      savedUsername &&
-      savedUsername !== "undefined" &&
-      savedPassword &&
-      savedPassword !== "undefined"
-    ) {
+    if (savedUsername && savedUsername !== "undefined") {
       setUserName(savedUsername);
-      setUserPassword(savedPassword);
       setIsLogin(true);
     }
   }, []);
+
+  const usernameDisplay =
+    userName.length < 14
+      ? userName[0]?.toUpperCase() + userName.slice(1)
+      : userName[0]?.toUpperCase() + userName.slice(1, 13) + "...";
 
   return (
     <div
@@ -100,13 +92,11 @@ const HeaderTop = () => {
               <>
                 {isLogin ? (
                   <div className="flex items-center justify-center space-x-5">
-                    <Link to={`/users/${userName}/username`}>
-                      {userName.length < 14
-                        ? userName[0].toUpperCase() + userName.slice(1)
-                        : userName[0].toUpperCase() +
-                          userName.slice(1, 13) +
-                          "..."}
-                      {/* {username[0].toUpperCase() + username.slice(1)} */}
+                    <Link
+                      to={`/users/${userName}/username`}
+                      className="cursor-pointer text-white"
+                    >
+                      {usernameDisplay}
                     </Link>
                     <LogOut />
                   </div>

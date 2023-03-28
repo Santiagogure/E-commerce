@@ -26,19 +26,18 @@ const PersonalInfo = () => {
   const handleUpdateUsername = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.put(
-        `http://localhost:4000/users/${currUser}/username`,
+      await axios.put(
+        `http://localhost:4000/${userName}/update/${userName}/update`,
         {
           username: newUser,
         }
       );
       localStorage.setItem("username", newUser);
-      console.log(response.data.message);
       setCurrUser(newUser);
       setUserName(newUser);
       setPersonalInfoShow(false);
     } catch (error) {
-      console.log("Mala respuesta");
+      console.log("Bad Answer:" + error);
     }
   };
 
@@ -46,29 +45,28 @@ const PersonalInfo = () => {
   const handleUpdatePassword = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.put(
-        `http://localhost:4000/users/${userName}/password`,
+      await axios.put(
+        `http://localhost:4000/${userName}/password/update/${userName}/password/update`,
         {
           password: newPassword,
         }
       );
-      console.log(response.data.message);
       setCurrUserPassword(newPassword);
       setUserPassword(newPassword);
       setPersonalInfoShow(false);
+      redirect();
     } catch (error) {
-      console.log(newPassword);
       console.log(error);
     }
   };
 
+  //Funcion para eliminar un usuario
   const handleDeleteUser = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.delete(
-        `http://localhost:4000/users/${userName}/delete`
+      await axios.delete(
+        `http://localhost:4000/${userName}/delete/${userName}/delete`
       );
-      console.log(response.data.message);
       localStorage.clear();
       setIsLogin(false);
       redirect();

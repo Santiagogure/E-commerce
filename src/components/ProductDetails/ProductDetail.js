@@ -1,11 +1,7 @@
-import React, { useContext, useState } from "react";
-import CategoryLeftColumn from "../Categories/CategoryLeftColumn/CategoryLeftColumn";
+import React, { useState } from "react";
 import ProductRightCol from "./ProductRightCol/ProductRightCol";
 import { LoadingText } from "../Common/Loader";
-import ads from "../../assets/style.jpg";
 import { SimilarProducts } from "./ProductRightCol/SimilarProducts";
-import CategoryNav from "../Categories/CategoryLeftColumn/CategoryNav";
-import { AppContext } from "../../context/DataProvider";
 
 const ProductDetail = () => {
   const [loading, setLoading] = useState(true);

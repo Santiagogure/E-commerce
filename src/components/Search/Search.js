@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../../context/DataProvider";
 import TopRated from "../ProductDetails/ProductLeftCol/TopRated";
-import CategoryNav from "../Categories/CategoryLeftColumn/CategoryNav";
 import CardItem from "../Common/CardProduct";
-import ads from "../../assets/style.jpg";
 
 export const Search = () => {
   const { items, setMenuIsVisible } = useContext(AppContext);
@@ -26,9 +24,7 @@ export const Search = () => {
             {searchItems && searchItems.length > 0 && (
               <TopRated products={searchItems.slice(0, 4)} />
             )}
-            <div className="max-w-[190px]">
-              <img src={ads} alt="a women" />
-            </div>
+
             <div className="max-w-[190px]"></div>
           </div>
 

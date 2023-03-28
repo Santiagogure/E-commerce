@@ -31,7 +31,7 @@ export const AccountInfo = () => {
       {!isLogin && (
         <>
           <div className="flex h-screen items-center justify-center text-xl">
-            you are not logged in 😢. Please logged in to access this route
+            you are not logged in. Please logged in to access this route
           </div>
           {setTimeout(() => {
             Navigate("/login");

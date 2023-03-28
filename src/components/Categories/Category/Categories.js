@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../../../context/DataProvider";
-
-import ads from "../../../assets/style.jpg";
 import { FilterCategories } from "./FilterCategories";
 import CardItem from "../../Common/CardProduct";
 import CategoryNav from "../CategoryLeftColumn/CategoryNav";
@@ -42,9 +40,6 @@ const Categories = () => {
             mt-[5rem]  hidden min-w-[15%] flex-col lg:flex`}
           >
             <CategoryNav category={categories} renderCategory={categories} />
-            <div className="max-w-[190px]">
-              <img src={ads} alt="a women" />
-            </div>
           </div>
 
           <div className="flex flex-col items-end justify-end">

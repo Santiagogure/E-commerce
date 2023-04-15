@@ -20,7 +20,7 @@ export const LoginForm = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:4000/login/login", { username, password })
+      .post("http://localhost:4000/login", { username, password })
       .then((response) => {
         console.log(response);
         localStorage.setItem("username", response.data.username);

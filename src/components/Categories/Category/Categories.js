@@ -38,9 +38,7 @@ const Categories = () => {
           <div
             className={`
             mt-[5rem]  hidden min-w-[15%] flex-col lg:flex`}
-          >
-            <CategoryNav category={categories} renderCategory={categories} />
-          </div>
+          ></div>
 
           <div className="flex flex-col items-end justify-end">
             <div className="flex flex-col flex-wrap items-center">

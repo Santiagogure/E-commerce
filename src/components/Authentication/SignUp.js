@@ -26,7 +26,7 @@ export const SingUpTry = () => {
       return;
     } else {
       axios
-        .post("http://localhost:4000/signup/signup", { username, password })
+        .post("http://localhost:4000/signup", { username, password })
         .then((response) => {
           console.log(response.data.message);
           window.location = "/login";

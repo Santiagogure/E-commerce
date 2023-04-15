@@ -37,11 +37,11 @@ const updateUser = require("./server/updateUser");
 const updatePassword = require("./server/updatePassword");
 const deleteUser = require("./server/DeleteUser");
 
-app.use("/login", loginRouter);
-app.use("/signup", signUpRouter);
-app.use("/:username/update", updateUser);
-app.use("/:username/password/update", updatePassword);
-app.use("/:username/delete", deleteUser);
+app.use("", loginRouter);
+app.use("", signUpRouter);
+app.use("", updateUser);
+app.use("", updatePassword);
+app.use("", deleteUser);
 
 app.listen(port, () => {
   console.log(`Servidor iniciado en el puerto ${port}`);

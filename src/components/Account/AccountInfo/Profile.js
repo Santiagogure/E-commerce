@@ -26,12 +26,9 @@ const PersonalInfo = () => {
   const handleUpdateUsername = async (event) => {
     event.preventDefault();
     try {
-      await axios.put(
-        `http://localhost:4000/${userName}/update/${userName}/update`,
-        {
-          username: newUser,
-        }
-      );
+      await axios.put(`http://localhost:4000/${userName}/update`, {
+        username: newUser,
+      });
       localStorage.setItem("username", newUser);
       setCurrUser(newUser);
       setUserName(newUser);
@@ -45,12 +42,9 @@ const PersonalInfo = () => {
   const handleUpdatePassword = async (event) => {
     event.preventDefault();
     try {
-      await axios.put(
-        `http://localhost:4000/${userName}/password/update/${userName}/password/update`,
-        {
-          password: newPassword,
-        }
-      );
+      await axios.put(`http://localhost:4000/${userName}/password/update`, {
+        password: newPassword,
+      });
       setCurrUserPassword(newPassword);
       setUserPassword(newPassword);
       setPersonalInfoShow(false);
@@ -64,9 +58,7 @@ const PersonalInfo = () => {
   const handleDeleteUser = async (event) => {
     event.preventDefault();
     try {
-      await axios.delete(
-        `http://localhost:4000/${userName}/delete/${userName}/delete`
-      );
+      await axios.delete(`http://localhost:4000/${userName}/delete`);
       localStorage.clear();
       setIsLogin(false);
       redirect();
